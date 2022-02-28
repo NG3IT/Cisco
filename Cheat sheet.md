@@ -37,9 +37,43 @@ $ no shutdown
 
 ### ACL
 
+#### Configuration
+
 ```bash
 # Create named ACL
 $ access-list extended <name>
-# Permit example
+# Examples
 $ permit <transport_protocol> host 192.168.1.10 gt 1023 192.168.2.0 0.0.0.255 eq 22
+$ deny <transport_protocol> host 192.168.1.10 gt 1023 192.168.2.0 0.0.0.255 eq 443
+$ deny ip any any log
+```
+
+#### Application
+
+```bash
+$ int <interface>
+$ ip access-group <name> <in or out>
+
+$ int fa0/1
+$ ip access-group <name> int
+```
+
+#### Show configuration
+
+```bash
+$ show acces-lists <name>
+```
+
+#### Delete ACL
+
+```bash
+$ no ip access-list extended <name>
+$ end
+```
+
+#### Delete ACL/Interface association
+
+```bash
+$ int <interface>
+$ no ip access-group <name> <in or out>
 ```
