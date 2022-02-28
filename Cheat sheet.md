@@ -34,3 +34,12 @@ $ interface <vlan_number>
 $ ip address <ip> <mask>
 $ no shutdown
 ```
+
+### ACL
+
+```bash
+# Create named ACL
+$ access-list extended <name>
+# Permit example
+$ permit <transport_protocol> host 192.168.1.10 gt 1023 192.168.2.0 0.0.0.255 eq 22
+```
